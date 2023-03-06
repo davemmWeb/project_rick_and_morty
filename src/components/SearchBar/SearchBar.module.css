@@ -1,0 +1,17 @@
+.container{
+    width: 40%;
+    margin-top: 0.3rem;
+}
+.container input, button{    
+    border-radius: 10px;
+    margin-right: 2%;
+    height: 30px;
+    font-size: 20px;    
+}
+.container button{
+    transition: 2ms;
+}
+.container button:hover{
+    background-color: rgb(37, 15, 208);
+    color: antiquewhite;
+}

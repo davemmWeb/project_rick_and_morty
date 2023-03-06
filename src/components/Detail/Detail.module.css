@@ -1,0 +1,25 @@
+.container{
+    border: solid 1px wheat;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 3rem;
+    height: 450px;
+    background-color: rgba(120, 120, 200, 0.5);
+    display: flex;
+    flex-wrap: wrap;
+}
+.text{
+    margin-top: 2rem;
+    margin-left: 5%;
+    font-size: 15px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: antiquewhite;
+}
+.container img{
+    margin-left: 10%;
+    margin-top: 2.5rem;
+    width: 34%;
+    height: 70%;
+    border-radius: 10%;
+}

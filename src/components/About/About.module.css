@@ -1,0 +1,44 @@
+.container{
+    background-color: rgba(220, 220, 220, 0.3);
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 8rem;
+    height: 55%;
+    width: 90%;
+    margin-right: auto;
+    margin-left: auto;
+}
+.textContainer{
+    width: 40%;    
+    margin-left: 2%;
+    color: rgb(24, 23, 21);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.textContainer button{ 
+    cursor: pointer;   
+    animation-duration: 1.5s;
+    animation-name: slidein;
+    animation-iteration-count: infinite;
+}
+@keyframes slidein{
+    from {
+        background-color: rgba(220, 120, 120, 0.8);
+    }
+    to{
+        background-color: rgba(110, 290, 170, 0.5);
+        transform: scale(1.1)
+    }
+}
+
+.imgContainer{
+    width: 50%;
+    margin-top: 1rem;
+    height: 100%;
+    margin-left: 6%;
+}
+.imgContainer img{
+    width: 40%;
+    height: 80%;
+    border-radius: 10%;    
+    opacity: 1;
+}

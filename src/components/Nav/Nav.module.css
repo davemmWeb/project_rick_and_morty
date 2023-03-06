@@ -1,0 +1,21 @@
+.container{
+    background-color: rgba(130, 130, 280, 0.6);
+    height: 40px; 
+    display: flex;
+    flex-wrap: wrap;   
+}
+
+.button{   
+    right: 80%;
+    margin-top: 0.3rem;
+    cursor: pointer;
+    margin-left: 6%;
+    margin-right: 6%;
+    transition: 2ms;    
+}
+.button:hover{
+    background-color:  rgb(37, 15, 208);
+    color: antiquewhite;
+}
+
+
