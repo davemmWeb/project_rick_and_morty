@@ -37,7 +37,7 @@ export const Login = (props) => {
   return (
     <div className={styles.container}>
 
-        <label className={styles.label} htmlFor="name">Username: email@example.com</label>
+        <label className={styles.label} htmlFor="name">UserName: email@example.com</label>
         <input 
             className={styles.input} 
             type="text" 
