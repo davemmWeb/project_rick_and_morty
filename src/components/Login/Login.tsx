@@ -4,9 +4,8 @@ import { validationUser, validationPassword } from "./validations"
 import { useNavigate } from 'react-router-dom'
 import Swal from 'sweetalert2'
 
-export const Login = (props) => {
+export const Login = () => {
     const navigate = useNavigate()
-    const [access, setaccess] = useState(false);
 
     const [userData, setUserData] = useState({
         email: '',
@@ -19,15 +18,15 @@ export const Login = (props) => {
     //     }
     // };
 
-    useEffect(() => {
-        !access && navigate("/");
-    }, [access, navigate]);
+    // useEffect(() => {
+    //     !access && navigate("/");
+    // }, [access, navigate]);
     // const [userData, setUserData] = React.useState({
     //     username: '',
     //     password: ''
     // })
 
-    const [errors, setErrors] = React.useState({
+    const [errors, setErrors] = useState({
         username: '',
         password: ''
     })
@@ -68,7 +67,7 @@ export const Login = (props) => {
                 onChange={handleInputChange}
             />
             <br />
-            {errors.username ? <span>{errors.email}</span> : ''}
+            {errors.email ? <span>{errors.email}</span> : ''}
 
             <label className={styles.label} htmlFor="password">Password</label>
             <input

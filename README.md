@@ -1,5 +1,3 @@
-¡Por supuesto! Aquí tienes el texto en formato Markdown (archivo .md):
-
 ```markdown
 # Descubre mi Increíble Aplicación Rick y Morty!
 
@@ -13,7 +11,7 @@
 
 - **Explora el Universo de Rick y Morty**: Mi aplicación te permite sumergirte en el universo de esta popular serie animada. Descubre personajes, episodios y mucho más.
 
-- **Acceso Sencillo**: Inicia sesión con el usuario "email@example.com" y la contraseña "1234". ¡Es fácil y rápido!
+- **Acceso Sencillo**: Primero registrate e inicia sesión para poder ingresar. ¡Es fácil y rápido!
 
 - **Siempre Abierto a Sugerencias**: Estoy deseando recibir tus sugerencias y comentarios. Cualquier idea para mejorar esta aplicación es más que bienvenida.
 
@@ -23,5 +21,3 @@ Esta aplicación es el fruto de mi pasión por el desarrollo web y el aprendizaj
 
 Gracias por visitar mi proyecto y disfruta explorando el fascinante mundo de Rick y Morty en mi aplicación. ¡Te aseguro que hay muchas sorpresas esperándote! 🚀🌌
 ```
-
-Este es el texto en formato Markdown, que puedes copiar y pegar en un archivo con extensión .md para utilizarlo como desees.
