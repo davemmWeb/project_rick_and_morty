@@ -1,15 +1,18 @@
-import React, { useEffect, useState } from 'react'
-import "./home.css";
+import { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
+import { get_all_characters } from '../../features/characters';
+import { useAppDispatch, useAppSelector } from '../../features/hooks';
+import Cards from '../Cards/Cards';
 import Nav from '../Nav/Nav';
-import { useLocation, useNavigate } from 'react-router-dom';
 import { AtributesCharacter } from '../vite-env';
-import Cards from '../Cards/Cards'
-import { Login } from '../Login/Login';
+import "./home.css";
 
 const Home = () => {
 	const location = useLocation();
 	const [characters, setCharacters] = useState([] as AtributesCharacter[]);
-	const navigate = useNavigate();
+
+	const dispatch = useAppDispatch()
+	const allCharacters = useAppSelector(state => state.stateCaharacters.list)
 
 
 	const onSearch = (character) => {
@@ -65,6 +68,11 @@ const Home = () => {
 			});
 	};
 
+	useEffect(() => {
+		dispatch(get_all_characters())
+		setCharacters(allCharacters)
+	}, [])
+
 	const { pathname } = location;
 	return (
 		<div
@@ -73,17 +81,8 @@ const Home = () => {
 				padding: "25px",
 			}}
 		>
-			{
-				pathname === "/" ? (
-					<Login />
-				) :
-					(
-						<>
-							<Nav onSearch={onSearch} randomSearch={randomSearch} />
-							<Cards characters={characters} onClose={onClose} />
-						</>
-					)
-			}
+			<Nav onSearch={onSearch} randomSearch={randomSearch} />
+			<Cards onClose={onClose} />
 
 		</div>
 	)

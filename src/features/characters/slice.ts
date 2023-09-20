@@ -26,12 +26,15 @@ export const slice = createSlice({
         },
         SET_FAVORITES: (state, action: PayloadAction<AtributesCharacter>) => {
             state.favorites.push(action.payload)
+        },
+        DELETE_FAVORITE: (state, action: PayloadAction<number>) => {
+            state.favorites.filter(value => value.id != action.payload)
         }
 
     },
 })
 
-export const { SET_ALL_CHARACTERS, SET_FAVORITES } = slice.actions
+export const { SET_ALL_CHARACTERS, SET_FAVORITES, DELETE_FAVORITE } = slice.actions
 
 // Other code such as selectors can use the imported `RootState` type
 export const selectCharacters = (state: RootState) => state.stateCaharacters
