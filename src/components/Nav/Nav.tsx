@@ -1,12 +1,20 @@
 import SearchBar from '../SearchBar/SearchBar'
 import styles from "../Nav/Nav.module.css"
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 
 export default function Nav(props) {
+
+  const navigate = useNavigate()
+
   const handlerClick = (event) => {
     event.preventDefault()
     props.randomSearch()
+  }
+
+  const hadlerLogout = () => {
+    localStorage.clear()
+    navigate("/")
   }
   return (
     <div className={styles.container}>
@@ -15,7 +23,7 @@ export default function Nav(props) {
       <Link to="/home"><button className={styles.button} >Home</button></Link>
       <Link to="/favorites"><button className={styles.button} >Favorites</button></Link>
       <SearchBar onSearch={props.onSearch} />
-      <button onClick={props.logout} className={styles.button}>Logout</button>
+      <button onClick={hadlerLogout} className={styles.button}>Logout</button>
     </div>
   )
 }

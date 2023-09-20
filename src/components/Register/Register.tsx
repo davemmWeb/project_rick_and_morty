@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react'
-import styles from './Register.module.css'
+import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Swal from 'sweetalert2'
-import { validationUser, validationPassword } from './validations'
 import { AtributesUser } from '../vite-env'
+import styles from './Register.module.css'
+import { validationPassword, validationUser } from './validations'
 
 const Register = () => {
 
@@ -35,15 +35,16 @@ const Register = () => {
 		});
 	}
 
-	const email = localStorage.getItem("userCurrent")
+	const email = localStorage.getItem("userEmail")
 
 	const handleSubmit = () => {
 		email === userData.email ?
 			Swal.fire("The email is already registered") :
 			!errors.email && !errors.password
 		Swal.fire("Successful registration")
-		localStorage.setItem('userCurrent', userData.email)
-		navigate("/login")
+		localStorage.setItem('userEmail', userData.email)
+		localStorage.setItem('userPassword', userData.password)
+		navigate("/")
 	}
 
 

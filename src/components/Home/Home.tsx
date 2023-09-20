@@ -73,7 +73,6 @@ const Home = () => {
 		setCharacters(allCharacters)
 	}, [])
 
-	const { pathname } = location;
 	return (
 		<div
 			className="container"

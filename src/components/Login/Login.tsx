@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from 'react'
-import styles from "../Login/Login.module.css"
-import { validationUser, validationPassword } from "./validations"
+import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Swal from 'sweetalert2'
+import styles from "../Login/Login.module.css"
 
 export const Login = () => {
     const navigate = useNavigate()
@@ -12,10 +11,7 @@ export const Login = () => {
         password: ''
     })
 
-    const [errors, setErrors] = useState({
-        email: '',
-        password: ''
-    })
+
     const handleInputChange = (event) => {
         const value = event.target.value
         const name = event.target.name
@@ -23,22 +19,19 @@ export const Login = () => {
             ...userData,
             [name]: value
         })
-        validar()
     }
-    const validar = () => {
-        if (typeof userData.email === 'string' && typeof userData.password === 'string') {
-            setErrors({
-                ...errors,
-                email: validationUser(userData.email),
-                password: validationPassword(userData.password)
-            })
-        }
-    }
+
     const handleSubmit = () => {
-        const user = localStorage.getItem("userCurrent")
-        user === userData.email ?
-            navigate("/home") :
+        const userCurrent = localStorage.getItem("userEmail")
+        const passwordCurrent = localStorage.getItem("userPassword")
+        if (!userData.email || !userData.password) {
+            return Swal.fire('Email or password missing')
+        }
+        if (userCurrent === userData.email && passwordCurrent === userData.password) {
+            navigate("/home")
+        } else {
             Swal.fire("User not register")
+        }
     }
 
     return (
@@ -52,8 +45,6 @@ export const Login = () => {
                 value={userData.email}
                 onChange={handleInputChange}
             />
-            <br />
-            {errors.email ? <span style={{ color: "red" }}>{errors.email}</span> : ''}
 
             <label className={styles.label} htmlFor="password">Password</label>
             <input
@@ -63,8 +54,6 @@ export const Login = () => {
                 value={userData.password}
                 onChange={handleInputChange}
             />
-            <br />
-            {errors.password ? <span style={{ color: "red" }}>{errors.password}</span> : ''}
 
             <button
                 className={styles.button}
