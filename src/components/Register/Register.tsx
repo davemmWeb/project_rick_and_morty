@@ -1,20 +1,20 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from './Register.module.css'
 import { useNavigate } from 'react-router-dom'
 import Swal from 'sweetalert2'
+import { validationUser, validationPassword } from './validations'
+import { AtributesUser } from '../vite-env'
 
 const Register = () => {
 
 	const navigate = useNavigate()
 
-	const [userData, setUserData] = useState({
-		name: '',
+	const [userData, setUserData] = useState<AtributesUser>({
 		email: '',
 		password: ''
 	})
 
-	const [errors, setErrors] = useState({
-		name: '',
+	const [errors, setErrors] = useState<AtributesUser>({
 		email: '',
 		password: ''
 	})
@@ -24,15 +24,24 @@ const Register = () => {
 			...userData,
 			[name]: value
 		})
+		validation()
 	}
 
-	const user = localStorage.getItem("userCurrent")
+	const validation = () => {
+		setErrors({
+			...errors,
+			email: validationUser(userData.email),
+			password: validationPassword(userData.password)
+		});
+	}
+
+	const email = localStorage.getItem("userCurrent")
 
 	const handleSubmit = () => {
-		user === userData.email ?
-			Swal.fire("The user is already registered")
-			:
-			Swal.fire("Successful registration")
+		email === userData.email ?
+			Swal.fire("The email is already registered") :
+			!errors.email && !errors.password
+		Swal.fire("Successful registration")
 		localStorage.setItem('userCurrent', userData.email)
 		navigate("/login")
 	}
@@ -45,23 +54,12 @@ const Register = () => {
 			<input
 				className={styles.input}
 				type="text"
-				name='name'
-				value={userData.name}
-				onChange={handleInputChange}
-			/>
-			<br />
-			{errors.name ? <span>{errors.name}</span> : ''}
-
-			<label className={styles.label} htmlFor="name">Email</label>
-			<input
-				className={styles.input}
-				type="email"
 				name='email'
 				value={userData.email}
 				onChange={handleInputChange}
 			/>
 			<br />
-			{errors.name ? <span>{errors.name}</span> : ''}
+			{errors.email ? <span style={{ color: 'red' }}>{errors.email}</span> : ''}
 
 			<label className={styles.label} htmlFor="password">Password</label>
 			<input
@@ -72,13 +70,18 @@ const Register = () => {
 				onChange={handleInputChange}
 			/>
 			<br />
-			{errors.password ? <span>{errors.password}</span> : ''}
+			{errors.password ? <span style={{ color: 'red' }}>{errors.password}</span> : ''}
 
 			<button
 				className={styles.button}
 				type='submit'
 				onClick={handleSubmit}
 			>REGISTER</button>
+			<button
+				className={styles.button}
+				type='submit'
+				onClick={() => { navigate("/login") }}
+			>I'M REGISTERED</button>
 		</div>
 	)
 }

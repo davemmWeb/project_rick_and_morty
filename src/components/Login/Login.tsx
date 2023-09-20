@@ -11,23 +11,9 @@ export const Login = () => {
         email: '',
         password: ''
     })
-    // const login = (userdata) => {
-    //     if (userdata.password === password && userdata.username === username) {
-    //         setaccess(true);
-    //         navigate("/home");
-    //     }
-    // };
-
-    // useEffect(() => {
-    //     !access && navigate("/");
-    // }, [access, navigate]);
-    // const [userData, setUserData] = React.useState({
-    //     username: '',
-    //     password: ''
-    // })
 
     const [errors, setErrors] = useState({
-        username: '',
+        email: '',
         password: ''
     })
     const handleInputChange = (event) => {
@@ -37,16 +23,16 @@ export const Login = () => {
             ...userData,
             [name]: value
         })
-
         validar()
-
     }
     const validar = () => {
-        setErrors({
-            ...errors,
-            email: validationUser(userData.email),
-            password: validationPassword(userData.password)
-        })
+        if (typeof userData.email === 'string' && typeof userData.password === 'string') {
+            setErrors({
+                ...errors,
+                email: validationUser(userData.email),
+                password: validationPassword(userData.password)
+            })
+        }
     }
     const handleSubmit = () => {
         const user = localStorage.getItem("userCurrent")
@@ -67,7 +53,7 @@ export const Login = () => {
                 onChange={handleInputChange}
             />
             <br />
-            {errors.email ? <span>{errors.email}</span> : ''}
+            {errors.email ? <span style={{ color: "red" }}>{errors.email}</span> : ''}
 
             <label className={styles.label} htmlFor="password">Password</label>
             <input
@@ -78,7 +64,7 @@ export const Login = () => {
                 onChange={handleInputChange}
             />
             <br />
-            {errors.password ? <span>{errors.password}</span> : ''}
+            {errors.password ? <span style={{ color: "red" }}>{errors.password}</span> : ''}
 
             <button
                 className={styles.button}

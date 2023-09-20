@@ -9,3 +9,9 @@ export interface AtributesCharacter {
     gender: string;
     image: string;
 }
+
+export interface AtributesUser {
+    id?: number;
+    email: string;
+    password: string;
+}
