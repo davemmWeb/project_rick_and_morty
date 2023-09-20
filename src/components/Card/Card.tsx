@@ -22,10 +22,10 @@ function Card(props) {
    const handleFavorite = () => {
       if (isFav === true) {
          setisFav(false)
-         props.deleteCharacter(props.id)
+         delete_favorite(props.id)
       } else {
          setisFav(true)
-         props.addCharacter(props)
+         set_favorite(props.id)
       }
    }
 

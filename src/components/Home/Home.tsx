@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
 import { get_all_characters } from '../../features/characters';
 import { useAppDispatch, useAppSelector } from '../../features/hooks';
 import Cards from '../Cards/Cards';
@@ -8,7 +7,7 @@ import { AtributesCharacter } from '../vite-env';
 import "./home.css";
 
 const Home = () => {
-	const location = useLocation();
+
 	const [characters, setCharacters] = useState([] as AtributesCharacter[]);
 
 	const dispatch = useAppDispatch()
@@ -40,11 +39,6 @@ const Home = () => {
 		const arr = characters.filter((value) => value.id !== id);
 		setCharacters([...arr]);
 	};
-
-	// const logout = () => {
-	// 	setaccess(false);
-	// 	navigate("/");
-	// };
 
 	const randomSearch = () => {
 		const numRandom = Math.floor(Math.random() * 826);
