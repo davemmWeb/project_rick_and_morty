@@ -19,7 +19,7 @@ export default function Nav(props) {
   return (
     <div className={styles.container}>
       <button onClick={handlerClick} className={styles.button}>Random</button>
-      <Link to="/About"><button className={styles.button} >About</button></Link>
+      <Link to="/about"><button className={styles.button} >About</button></Link>
       <Link to="/home"><button className={styles.button} >Home</button></Link>
       <Link to="/favorites"><button className={styles.button} >Favorites</button></Link>
       <SearchBar onSearch={props.onSearch} />

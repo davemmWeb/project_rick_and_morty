@@ -28,13 +28,15 @@ export const slice = createSlice({
             state.favorites.push(action.payload)
         },
         DELETE_FAVORITE: (state, action: PayloadAction<number>) => {
-            state.favorites.filter(value => value.id != action.payload)
+            state.favorites = state.favorites.filter(favorite => favorite.id !== action.payload);
+        },
+        FILTER_CARDS: (state, action: PayloadAction<string>) => {
+            state.list = state.list.filter(value => value.gender === action.payload)
         }
-
     },
 })
 
-export const { SET_ALL_CHARACTERS, SET_FAVORITES, DELETE_FAVORITE } = slice.actions
+export const { SET_ALL_CHARACTERS, SET_FAVORITES, DELETE_FAVORITE, FILTER_CARDS } = slice.actions
 
 // Other code such as selectors can use the imported `RootState` type
 export const selectCharacters = (state: RootState) => state.stateCaharacters

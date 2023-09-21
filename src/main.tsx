@@ -11,6 +11,7 @@ import { Login } from "./components/Login/Login.jsx";
 import Register from "./components/Register/Register";
 import ErrorPage from './error-page.tsx';
 import { store } from './features/store';
+import { About } from "./components/About/About.tsx";
 
 const router = createBrowserRouter([
   {
@@ -35,6 +36,10 @@ const router = createBrowserRouter([
   {
     path: "/register",
     element: <Register />
+  },
+  {
+    path: "/about",
+    element: <About />
   }
 ])
 

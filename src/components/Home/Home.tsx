@@ -5,6 +5,7 @@ import Cards from '../Cards/Cards';
 import Nav from '../Nav/Nav';
 import { AtributesCharacter } from '../vite-env';
 import "./home.css";
+import Filters from '../Filters/Filters';
 
 const Home = () => {
 
@@ -75,8 +76,8 @@ const Home = () => {
 			}}
 		>
 			<Nav onSearch={onSearch} randomSearch={randomSearch} />
+			<Filters />
 			<Cards onClose={onClose} />
-
 		</div>
 	)
 }

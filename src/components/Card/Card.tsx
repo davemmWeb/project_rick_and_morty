@@ -2,10 +2,12 @@ import { useEffect, useState } from "react"
 import { connect } from "react-redux"
 import { Link } from "react-router-dom"
 import { delete_favorite, set_favorite } from "../../features/characters"
-import { useAppSelector } from "../../features/hooks"
+import { useAppSelector, useAppDispatch } from "../../features/hooks"
 import styles from "../Card/Card.module.css"
 
 function Card(props) {
+
+   const dispatch = useAppDispatch()
 
    const myFavorites = useAppSelector(state => state.stateCaharacters.favorites)
    useEffect(() => {
@@ -22,10 +24,10 @@ function Card(props) {
    const handleFavorite = () => {
       if (isFav === true) {
          setisFav(false)
-         delete_favorite(props.id)
+         dispatch(delete_favorite(props.id))
       } else {
          setisFav(true)
-         set_favorite(props.id)
+         dispatch(set_favorite(props.id))
       }
    }
 
