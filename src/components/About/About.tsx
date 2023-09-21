@@ -1,7 +1,6 @@
-import React from 'react'
-import styles from "../About/About.module.css"
-import forme from "../../img/forMe.jpeg"
 import { Link } from 'react-router-dom'
+import forme from "../../img/forMe.jpeg"
+import styles from "../About/About.module.css"
 
 export const About = () => {
   return (
@@ -9,17 +8,16 @@ export const About = () => {
       <div className={styles.textContainer}>
         <h1>About me</h1>
         <p>Hi, I'm David - Software Engineer in Colombia.
-          <br/>
-          <br/>         
-          I am a full stack developer with experience in Javascript, 
-          technologies like React, Node, Redux, mySQL...
-
-          I am passionate about new challenges in which you can interact
-           with new people and learn from others, I also really like 
-           sharing my knowledge with others, I consider myself a good 
-           tutor when it comes to teaching...
+          <br />
+          <br />
+          My name is David Duarte, software engineer and fullstack developer with more
+          than 4 years of experience in web application development solutions, advanced
+          knowledge in Html, Css, JavaScript, Vue, Vuex, Next, Node, Express, React, Redux
+          I also have With experience in relational databases MySQL, PostgreSQL, Sequelize
+          and management of GitHub version controllers. I focus on solving problems and I
+          love teamwork. I also like to collaborate on interface design.
         </p>
-        <Link><button>PORTFOLIO</button></Link>
+        <Link to={"https://portfolio-davemmweb.vercel.app/"}><button>PORTFOLIO</button></Link>
       </div>
       <div className={styles.imgContainer}>
         <img src={forme} alt="forMe" />

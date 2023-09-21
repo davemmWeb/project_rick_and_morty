@@ -1,7 +1,5 @@
-import React from 'react'
-import { useAppDispatch } from '../../features/hooks'
-import styles from './Filters.module.css'
 import { filter_cards } from '../../features/characters'
+import { useAppDispatch } from '../../features/hooks'
 
 const Filters = () => {
 

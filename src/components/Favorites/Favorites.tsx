@@ -1,13 +1,10 @@
-import React from 'react'
-import styles from "../Favorites/Favorites.module.css"
-import { useAppDispatch, useAppSelector } from '../../features/hooks'
-import Nav from '../Nav/Nav'
+import { useAppSelector } from '../../features/hooks'
 import Card from '../Card/Card'
+import Nav from '../Nav/Nav'
 
 
 const Favorites = () => {
 
-  const dispatch = useAppDispatch()
   const { favorites } = useAppSelector((state) => state.stateCaharacters)
 
   return (
